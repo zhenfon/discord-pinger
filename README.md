@@ -21,7 +21,7 @@ Discord Pinger is a simple web application that allows users to ping specific Di
 
 ## Live Demo
 
-Link: [Demo Site](#)
+Link: [Demo Site](https://zhenfon.github.io/discord-pinger/)
 
 ## Installation
 
