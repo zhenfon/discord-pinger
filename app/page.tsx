@@ -44,7 +44,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-export function ModeToggle() {
+function ModeToggle() {
   const { setTheme } = useTheme()
 
   return (
@@ -71,7 +71,7 @@ export function ModeToggle() {
   )
 }
 
-export function Header() {
+function Header() {
   return (
     <div className="w-full bg-[hsl(var(--background))]">
       <div className="flex justify-center items-center">
@@ -85,7 +85,7 @@ export function Header() {
   );
 }
 
-export function Footer() {
+function Footer() {
   return (
     <div className="fixed bottom-0 w-full bg-[hsl(var(--background))]">
       <Separator />
@@ -112,7 +112,7 @@ export function Footer() {
   );
 }
 
-export function Content() {
+function Content() {
   const imageUrlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))(?:\?.*)?$/i;
   const { toast } = useToast();
   const [webhook, setWebhook] = useState('');
