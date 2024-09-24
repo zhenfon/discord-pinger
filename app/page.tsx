@@ -89,24 +89,41 @@ function Footer() {
   return (
     <div className="fixed bottom-0 w-full bg-[hsl(var(--background))]">
       <Separator />
-      <div className="mx-3">
-        <span className="text-sm font-medium">Built with</span>
-        <HoverCard>
-          <HoverCardTrigger asChild>
-            <Button className="pl-1 text-sm font-medium" variant="link">shadcn/ui</Button>
-          </HoverCardTrigger>
-          <HoverCardContent>
-            <div className="flex items-center justify-between gap-3">
-              <Link href="https://x.com/shadcn" target="_blank">
-                <Button variant="link" className="text-sm pl-1">Twitter/X</Button>
-              </Link>
-              <Separator orientation="vertical" />
-              <Link href="https://ui.shadcn.com/" target="_blank">
-                <Button variant="link" className="text-sm pl-1">Website</Button>
-              </Link>
-            </div>
-          </HoverCardContent>
-        </HoverCard>
+      <div className="mx-3 flex justify-between">
+        <div>
+          <span className="text-sm font-medium">Built with</span>
+          <HoverCard>
+            <HoverCardTrigger asChild>
+              <Button className="pl-1 text-sm font-medium" variant="link">shadcn/ui</Button>
+            </HoverCardTrigger>
+            <HoverCardContent>
+              <div className="flex items-center justify-between gap-3">
+                <Link href="https://x.com/shadcn" target="_blank">
+                  <Button variant="link" className="text-sm pl-1">Twitter/X</Button>
+                </Link>
+                <Separator orientation="vertical" />
+                <Link href="https://ui.shadcn.com/" target="_blank">
+                  <Button variant="link" className="text-sm pl-1">Website</Button>
+                </Link>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+        </div>
+
+        <div>
+          <HoverCard>
+            <HoverCardTrigger asChild>
+              <Button className="pl-1 text-sm font-medium" variant="link">Github</Button>
+            </HoverCardTrigger>
+            <HoverCardContent>
+              <div className="flex items-center justify-between gap-3">
+                <Link href="https://github.com/zhenfon/discord-pinger" target="_blank">
+                  <Button variant="link" className="text-sm pl-1">Repository</Button>
+                </Link>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+        </div>
       </div>
     </div>
   );
