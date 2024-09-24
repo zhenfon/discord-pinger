@@ -172,8 +172,8 @@ function Content() {
     setBotName('');
 
     toast({
-      title: "Inputs cleared",
-      description: "Form has been reset",
+      title: "Inputs Cleared",
+      description: "Form has been reset.",
     });
   };
 
