@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useState } from 'react';
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, Github } from "lucide-react"
 import { useTheme } from "next-themes"
 import Link from 'next/link';
 import { useToast } from "@/hooks/use-toast"
@@ -89,7 +89,7 @@ function Footer() {
   return (
     <div className="fixed bottom-0 w-full bg-[hsl(var(--background))]">
       <Separator />
-      <div className="mx-3 flex justify-between">
+      <div className="px-3 py-1 flex justify-between items-center">
         <div>
           <span className="text-sm font-medium">Built with</span>
           <HoverCard>
@@ -111,18 +111,9 @@ function Footer() {
         </div>
 
         <div>
-          <HoverCard>
-            <HoverCardTrigger asChild>
-              <Button className="pl-1 text-sm font-medium" variant="link">Github</Button>
-            </HoverCardTrigger>
-            <HoverCardContent>
-              <div className="flex items-center justify-between gap-3">
-                <Link href="https://github.com/zhenfon/discord-pinger" target="_blank">
-                  <Button variant="link" className="text-sm pl-1">Repository</Button>
-                </Link>
-              </div>
-            </HoverCardContent>
-          </HoverCard>
+          <Link href="https://github.com/zhenfon/discord-pinger" target="_blank">
+            <Button className="" variant="ghost" size="icon"><Github className="h-[1.2rem] w-[1.2rem]" /></Button>
+          </Link>
         </div>
       </div>
     </div>
