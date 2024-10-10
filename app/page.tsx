@@ -75,7 +75,7 @@ function Header() {
   return (
     <div className="w-full bg-[hsl(var(--background))]">
       <div className="flex justify-center items-center">
-        <h1 className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-5xl m-3">discord pinger</h1>
+        <h1 className="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-xl m-3">discord pinger</h1>
         <div className="flex items-center justify-center absolute right-0 px-3">
           <ModeToggle />
         </div>
@@ -87,7 +87,7 @@ function Header() {
 
 function Footer() {
   return (
-    <div className="fixed bottom-0 w-full bg-[hsl(var(--background))]">
+    <div className="w-full bg-[hsl(var(--background))]">
       <Separator />
       <div className="px-3 py-1 flex justify-between items-center">
         <div>
@@ -243,7 +243,7 @@ function Content() {
   };
 
   return (
-    <div className="flex flex-grow justify-center items-center p-5">
+    <div className="flex flex-grow justify-center items-center p-3">
       <Card className="w-[350px]">
         <CardHeader>
           <CardTitle>Configure Your Ping</CardTitle>
