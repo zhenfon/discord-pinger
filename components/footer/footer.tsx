@@ -8,8 +8,8 @@ import { Separator } from "@/components/ui/separator";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 export default function Footer() {
-  const [isFooterVisible, setIsFooterVisible] = useState(true); // Track if the footer is visible
-  const [lastScrollY, setLastScrollY] = useState(0); // Track the last scroll position
+  const [isFooterVisible, setIsFooterVisible] = useState<boolean>(true); // Add type to the state
+  const [lastScrollY, setLastScrollY] = useState<number>(0); // Add type to the scroll position
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +43,7 @@ export default function Footer() {
   return (
     <div
       className={`w-full bg-[hsl(var(--background))] fixed bottom-0 transition-opacity duration-300 ease-in-out ${
-        isFooterVisible ? "opacity-100" : "opacity-0"
+        isFooterVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
     >
       <Separator />
