@@ -8,28 +8,22 @@ import { Separator } from "@/components/ui/separator";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 export default function Footer() {
-  const [footerStyle, setFooterStyle] = useState({ opacity: 1, marginBottom: "0px" });
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isFooterVisible, setIsFooterVisible] = useState(true); // Track if the footer is visible
+  const [lastScrollY, setLastScrollY] = useState(0); // Track the last scroll position
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const footerOpacity = Math.max(0, 1 - currentScrollY / 200); // Adjust fade speed
-      const footerMargin = Math.min(50, currentScrollY / 2) + "px"; // Adjust move speed
 
-      if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setFooterStyle({
-          opacity: footerOpacity,
-          marginBottom: footerMargin,
-        });
-      } else {
-        // Scrolling up
-        setFooterStyle({
-          opacity: 1,
-          marginBottom: "0px",
-        });
+      if (currentScrollY - lastScrollY > 3) {
+        // Scrolled down by at least 3px
+        setIsFooterVisible(false);
+      } else if (lastScrollY - currentScrollY > 3) {
+        // Scrolled up by at least 3px
+        setIsFooterVisible(true);
       }
+
+      // Update the last scroll position
       setLastScrollY(currentScrollY);
     };
 
@@ -42,11 +36,9 @@ export default function Footer() {
 
   return (
     <div
-      className="w-full bg-[hsl(var(--background))] fixed bottom-0 transition-all duration-300 ease-in-out"
-      style={{
-        opacity: footerStyle.opacity,
-        marginBottom: footerStyle.marginBottom,
-      }}
+      className={`w-full bg-[hsl(var(--background))] fixed bottom-0 transition-opacity duration-300 ease-in-out ${
+        isFooterVisible ? "opacity-100" : "opacity-0"
+      }`}
     >
       <Separator />
       <div className="px-3 py-1 flex justify-between items-center">
