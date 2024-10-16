@@ -14,6 +14,12 @@ export default function Footer() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const maxScrollY = document.documentElement.scrollHeight - window.innerHeight; // Maximum scrollable height
+
+      // Ignore overscroll (bounce back) on mobile when scroll position is outside the valid range
+      if (currentScrollY < 0 || currentScrollY > maxScrollY) {
+        return;
+      }
 
       if (currentScrollY - lastScrollY > 3) {
         // Scrolled down by at least 3px
