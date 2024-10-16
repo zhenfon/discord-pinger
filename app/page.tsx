@@ -2,28 +2,11 @@
 
 import * as React from "react"
 import { useState } from 'react';
-import { Moon, Sun, Github } from "lucide-react"
-import { useTheme } from "next-themes"
-import Link from 'next/link';
-import { useToast } from "@/hooks/use-toast"
 
-import { Separator } from "@/components/ui/separator"
+import { useToast } from "@/hooks/use-toast"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
 
 import {
   Card,
@@ -43,82 +26,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-
-function ModeToggle() {
-  const { setTheme } = useTheme()
-
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  )
-}
-
-function Header() {
-  return (
-    <div className="w-full bg-[hsl(var(--background))]">
-      <div className="flex justify-center items-center">
-        <h1 className="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-xl m-3">discord pinger</h1>
-        <div className="flex items-center justify-center absolute right-0 px-3">
-          <ModeToggle />
-        </div>
-      </div>
-      <Separator />
-    </div>
-  );
-}
-
-function Footer() {
-  return (
-    <div className="w-full bg-[hsl(var(--background))]">
-      <Separator />
-      <div className="px-3 py-1 flex justify-between items-center">
-        <div>
-          <span className="text-sm font-medium">Built with</span>
-          <HoverCard>
-            <HoverCardTrigger asChild>
-              <Button className="pl-1 text-sm font-medium" variant="link">shadcn/ui</Button>
-            </HoverCardTrigger>
-            <HoverCardContent>
-              <div className="flex items-center justify-between gap-3">
-                <Link href="https://x.com/shadcn" target="_blank">
-                  <Button variant="link" className="text-sm pl-1">Twitter/X</Button>
-                </Link>
-                <Separator orientation="vertical" />
-                <Link href="https://ui.shadcn.com/" target="_blank">
-                  <Button variant="link" className="text-sm pl-1">Website</Button>
-                </Link>
-              </div>
-            </HoverCardContent>
-          </HoverCard>
-        </div>
-
-        <div>
-          <Link href="https://github.com/zhenfon/discord-pinger" target="_blank">
-            <Button className="" variant="ghost" size="icon"><Github className="h-[1.2rem] w-[1.2rem]" /></Button>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function Content() {
   const imageUrlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))(?:\?.*)?$/i;
@@ -301,10 +208,8 @@ function Content() {
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <Header />
+    <>
       <Content />
-      <Footer />
-    </main>
+    </>
   )
 }
